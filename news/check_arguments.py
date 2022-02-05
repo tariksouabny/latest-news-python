@@ -1,8 +1,13 @@
 import os, logging
-from news import parse_arguments
+import parse_arguments 
+import util
 
+@util.log_start_end_func
 def are_arguments_valid():
     pass
 
+@util.log_start_end_func
 def print_help_text():
-    pass
+    return None
+
+print_help_text()
