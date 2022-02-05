@@ -1,4 +1,6 @@
-import argparse
+import argparse, logging
+
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
