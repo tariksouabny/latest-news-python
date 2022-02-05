@@ -6,4 +6,3 @@ def parse_arguments():
     parser.add_argument(dest="search_keyword", help="Search keyword(s), if possible",nargs="?" , default="")
     arguments = parser.parse_args()
     return arguments
-print(parse_arguments())
