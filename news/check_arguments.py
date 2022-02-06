@@ -1,13 +1,10 @@
 import os, logging, sys
 import util
-'''
-What we want to know:
+from util import
+class ArgumentTypeNotValidError(BaseException):
+    pass
 
-    Make sure that the first argument is either 'feed' or 'search'
-    if the second argument is an empty string, then the first argument has to be 'feed'
-    If the first argument is "search", then the second argument has to have a value
-'''
-class ArgumentTypeNotValidError(TypeError):
+class SearchKeywordNotValid(BaseException):
     pass
 
 
@@ -19,13 +16,23 @@ def are_arguments_valid(arguments):
     
     #check if the argyment type is valid
     try:
-        if arguments_type_.lower() not in ['feed', "search"]:
-            raise ArgumentTypeNotValidError
-    except ArgumentTypeNotValidError("Please enter either 'search' or 'feed', to search news, or get the top feed") as e:
-        sys.stderr.write(str(e))
+        if argument_type_.lower() not in ['feed', "search"]:
+            raise ArgumentTypeNotValidError("Please enter either 'search' or 'feed', to search news, or get the top feed")
+    except ArgumentTypeNotValidError as e:
+        sys.stderr.write(e)
+        valid=False
+
+    try:
+        if argument_search_keywowrd == "" and argument_type_ =="search":
+            raise SearchKeywordNotValid("Please enter a search keyword, if you are willing to search")
+    except SearchKeywordNotValid as e:
+        sys.stderr.write(e)
+        valid=False
+    
+    if not valid:
+        print_help_text()
+        
 
 @util.log_start_end_func
 def print_help_text():
-    return None
-
-print_help_text()
+    pass
