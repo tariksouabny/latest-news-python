@@ -1,6 +1,9 @@
 import os, logging, sys
 import util
-from util import
+from util import inherit_logging_config
+
+inherit_logging_config()
+
 class ArgumentTypeNotValidError(BaseException):
     pass
 
@@ -19,14 +22,14 @@ def are_arguments_valid(arguments):
         if argument_type_.lower() not in ['feed', "search"]:
             raise ArgumentTypeNotValidError("Please enter either 'search' or 'feed', to search news, or get the top feed")
     except ArgumentTypeNotValidError as e:
-        sys.stderr.write(e)
+        sys.stderr.write(str(e))
         valid=False
 
     try:
         if argument_search_keywowrd == "" and argument_type_ =="search":
             raise SearchKeywordNotValid("Please enter a search keyword, if you are willing to search")
     except SearchKeywordNotValid as e:
-        sys.stderr.write(e)
+        sys.stderr.write(str(e))
         valid=False
     
     if not valid:
