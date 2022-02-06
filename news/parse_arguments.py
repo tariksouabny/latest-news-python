@@ -1,6 +1,7 @@
 import argparse
 import util
 import logging
+from check_arguments import ArgumentTypeNotValidError, are_arguments_valid
 
 @util.log_start_end_func
 def parse_arguments():
@@ -9,6 +10,7 @@ def parse_arguments():
     parser.add_argument(dest="search_keyword", help="Search keyword(s), if possible",nargs="?" , default="")
     arguments = parser.parse_args()
     logging.debug(str(arguments))
+    are_arguments_valid(arguments)
     return arguments
 
 parse_arguments()
