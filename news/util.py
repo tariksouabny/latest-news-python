@@ -59,4 +59,5 @@ def format_search_article(article):
     for text in [country_text, source_text, link_text, published_date_text, title_text, topic_text, summary_text]:
         full_article_text+=text
         full_article_text+="\n"
+    full_article_text+="_"*30
     return full_article_text

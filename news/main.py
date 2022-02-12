@@ -16,4 +16,6 @@ headers = {
 
 response = requests.request("GET", url, headers=headers, params=querystring)
 
-pprint.pprint(json.loads(response.text))
+response_dict = json.loads(response.text)
+for article in response_dict['articles']:
+    print(util.format_search_article(article))
