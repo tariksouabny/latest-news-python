@@ -1,5 +1,5 @@
 import check_arguments, parse_arguments, util
-import logging
+import logging, pprint
 
 util.inherit_logging_config()
 
@@ -15,3 +15,5 @@ headers = {
     }
 
 response = requests.request("GET", url, headers=headers, params=querystring)
+
+pprint.pprint(json.loads(response.text))
