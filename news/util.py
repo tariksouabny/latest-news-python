@@ -1,5 +1,4 @@
 import logging
-<<<<<<< HEAD
 
 def inherit_logging_config():
     logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -14,7 +13,6 @@ def log_start_end_func(func):
         logging.debug(f"End of {func.__name__}{args}")
     return log
 
-=======
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def log_start_end_func(func):
@@ -25,4 +23,3 @@ def log_start_end_func(func):
         logging.debug(f"End of {func}{args}")
         return return_val
     return log
->>>>>>> main
