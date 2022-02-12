@@ -2,11 +2,9 @@ import argparse
 import util
 import logging
 from check_arguments import ArgumentTypeNotValidError, are_arguments_valid
-=======
 import argparse, logging
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
->>>>>>> main
+util.inherit_logging_config()
 
 @util.log_start_end_func
 def parse_arguments():
