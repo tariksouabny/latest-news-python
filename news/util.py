@@ -23,3 +23,40 @@ def log_start_end_func(func):
         logging.debug(f"End of {func}{args}")
         return return_val
     return log
+@log_start_end_func
+def format_search_article(article):
+    #make sure the article in in dictionary form
+    try:
+        if type(article) != dict:
+            raise TypeError(
+                f"Article must be of type dict, not of type {type(dict)}"
+            )
+    except TypeError as e:
+        print(e)
+
+    def make_authors_text():
+        authors_text = "Authors: "
+        for author in article['authors']:
+            authors_text += author
+        return authors_text
+    make_authors_text()
+
+    country_text = "Country: " + article['country']
+
+    source_text = "Source: " + article['clean_url']
+
+    link_text = "Link: " + article['link']
+
+    published_date_text = "Date: " + article['published_date']
+
+    title_text = "Title: " + article["title"]
+
+    topic_text = "Topic: " + article['topic']
+
+    summary_text = "Summary: \n" + article['summary']
+
+    full_article_text = ""
+    for text in [country_text, source_text, link_text, published_date_text, title_text, topic_text, summary_text]:
+        full_article_text+=text
+        full_article_text+="\n"
+    return full_article_text
