@@ -1,9 +1,7 @@
 import logging
 
-#TODO: Make the logging config inheritable
-
 def inherit_logging_config():
-    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
+    logging.basicConfig(level=logging.CRITICAL, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
 def log_start_end_func(func):
@@ -15,7 +13,8 @@ def log_start_end_func(func):
         logging.debug(f"End of {func.__name__} returning {return_val}")
         return return_val
     return log
-@log_start_end_func
+
+ @log_start_end_func
 def format_search_article(article):
     #make sure the article in in dictionary form
     try:
