@@ -17,3 +17,6 @@ def parse_arguments():
     logging.debug(str(arguments))
     are_arguments_valid(arguments)
     return arguments
+
+    
+are_arguments_valid(parse_arguments())

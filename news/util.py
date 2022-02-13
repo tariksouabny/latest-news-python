@@ -3,7 +3,7 @@ import logging
 #TODO: Make the logging config inheritable
 
 def inherit_logging_config():
-    logging.basicConfig(level=logging.CRITICAL, format="%(asctime)s - %(levelname)s - %(message)s")
+    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def log_start_end_func(func):
     inherit_logging_config()

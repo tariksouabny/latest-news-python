@@ -8,7 +8,7 @@ import requests, json
 
 url = "https://free-news.p.rapidapi.com/v1/search"
 
-querystring = {"q":"Elon Musk","lang":"en"}
+querystring = {"q":"Jazz","lang":"en"}
 
 headers = {
     'x-rapidapi-host': "free-news.p.rapidapi.com",
