@@ -4,6 +4,7 @@ import logging
 from check_arguments import ArgumentTypeNotValidError, are_arguments_valid
 import argparse, logging
 
+
 util.inherit_logging_config()
 
 @util.log_start_end_func
@@ -18,4 +19,5 @@ def parse_arguments():
     are_arguments_valid(arguments)
     return arguments
 
-parse_arguments()
+    
+are_arguments_valid(parse_arguments())
