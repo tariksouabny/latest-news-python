@@ -21,16 +21,24 @@ response_dict = json.loads(response.text)
 for article in response_dict['articles']:
     print(util.format_search_article(article))
 
-def search(search_keyword):
+def search_func(search_keyword):
     pass
 
-def feed():
+def feed_func():
     pass
 
 def main():
     arguments = parse_arguments.parse_arguments()
     valid, argument_type_, argument_search_keyword = check_arguments.are_arguments_valid(arguments)
     if valid():
+        dict_lookup = {
+            'search': lambda x: search_func(x, argument_search_keyword),
+            'feed': feed_func,
+
+        }
+        logging.debug(dict_lookup[argument_type_])
+        dict_lookup[argument_type_]()
+        
 
 
 #TODO: Find a way to access a feed

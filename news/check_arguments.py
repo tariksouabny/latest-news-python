@@ -40,7 +40,7 @@ def are_arguments_valid(arguments):
     argument_type_ = arguments.type_
     argument_search_keyword = arguments.search_keyword
     argument_help_ = arguments.help_
-    
+    #This determines whether the function call was for a search or for the feed
     valid = True
 
     # if the user puts in "help" in any of the arguments, then the help text is automatically printed, and returns
@@ -66,7 +66,7 @@ def are_arguments_valid(arguments):
     # if any of the cases above ocurred
     if not valid:
         print_help_text()
-        return valid
+        return valid, None, None
 
     return valid, argument_type_, argument_search_keyword
 
