@@ -15,8 +15,6 @@ def parse_arguments():
     parser.add_argument(dest="help_", help="Does the user need the help info?", nargs="?", default="")
     arguments = parser.parse_args()
     logging.debug(str(arguments))
-    are_arguments_valid(arguments)
     return arguments
 
-    
-are_arguments_valid(parse_arguments())
+
