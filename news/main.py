@@ -16,10 +16,11 @@ HEADERS = {
     }
 
 #response = requests.request("GET", url, headers=headers, params=querystring)
-
+@util.log_start_end_func
 def search_func(search_keyword):
+    logging.debug(f"search keyword is {search_keyword} of type {type(search_keyword)}")
     querystring = {"q": f"{search_keyword.lower()}", "lang": "en"}
-    response = requests.get("GET", URL, headers=HEADERS, params=querystring)
+    response = requests.get(URL, headers=HEADERS, params=querystring)
     response_dict = json.loads(response.text)
     for article in response_dict['articles']:
         print(util.format_search_article(article))
@@ -28,6 +29,7 @@ def search_func(search_keyword):
 def feed_func():
     pass
 
+@util.log_start_end_func
 def main():
     arguments = parse_arguments.parse_arguments()
     valid, argument_type_, argument_search_keyword = check_arguments.are_arguments_valid(arguments)
@@ -38,7 +40,7 @@ def main():
 
         }
         logging.debug(dict_lookup[argument_type_])
-        dict_lookup[argument_type_](...)
+        dict_lookup[argument_type_](None)
         
 if __name__ == "__main__":
     main()
