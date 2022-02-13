@@ -1,7 +1,9 @@
 import logging
 
+#TODO: Make the logging config inheritable
+
 def inherit_logging_config():
-    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
+    logging.basicConfig(level=logging.CRITICAL, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def log_start_end_func(func):
     inherit_logging_config()
@@ -13,9 +15,8 @@ def log_start_end_func(func):
         logging.debug(f"End of {func.__name__}{args}")
     return log
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
-
 def log_start_end_func(func):
+    inherit_logging_config()
     def log(*args, **kwargs):
         # TODO: Add a way to log **kwargs as well
         logging.debug(f"Start of {func}{args}")
@@ -59,5 +60,5 @@ def format_search_article(article):
     for text in [country_text, source_text, link_text, published_date_text, title_text, topic_text, summary_text]:
         full_article_text+=text
         full_article_text+="\n"
-    full_article_text+="_"*30
+    full_article_text+='\n'*4
     return full_article_text
