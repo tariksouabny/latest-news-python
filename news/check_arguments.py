@@ -39,7 +39,11 @@ def are_arguments_valid(arguments):
     # if any of the cases above ocurred
     if not valid:
         print_help_text()
+        return valid, None, None 
+        #returns False, None, None - because function call in main.py expects 3 return vals
 
+    return valid, argument_type_, argument_search_keywowrd
+    
 
 
         
