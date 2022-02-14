@@ -1,4 +1,5 @@
 import logging
+#TODO: rename to util_news.py - std module already named after this flie
 
 def inherit_logging_config():
     logging.basicConfig(level=logging.CRITICAL, format="%(asctime)s - %(levelname)s - %(message)s")
