@@ -1,5 +1,5 @@
 import argparse
-import util
+import util_news
 import logging
 from check_arguments import ArgumentTypeNotValidError, are_arguments_valid
 import argparse, logging

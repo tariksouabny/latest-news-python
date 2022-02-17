@@ -1,6 +1,6 @@
 import os, logging, sys
-import util
-from util import inherit_logging_config
+import util_news
+from util_news import inherit_logging_config
 
 inherit_logging_config()
 

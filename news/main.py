@@ -1,5 +1,5 @@
 
-import util, parse_arguments, check_arguments, logging
+import util_news, parse_arguments, check_arguments, logging
 #TODO: Decorate all of these functions with the util.
 def if_feed(_):
     pass
