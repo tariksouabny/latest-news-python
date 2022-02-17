@@ -1,6 +1,4 @@
 import logging
-#TODO: rename to util_news.py - std module already named after this flie
-#TODO: Download this util_news.py file for task automation later
 # TODO: Add a function that can wrap around other functions that are supposed to return a value.
 #       However, if they do not return a value, then it logging.error(...)s the issue.  
 def inherit_logging_config():
@@ -16,3 +14,10 @@ def log_start_end_func(func):
         return return_val
     return log
 
+
+#decorator to make sure that functions that need to return a vlue do so.
+def check_if_returns(func):
+    def check(*args, **kwargs):
+        logging.debug(f"RETURNING {func}{args}")
+        if func(*args, **kwargs) == None:
+            logging.error(f"{func}{args}{kwargs} returns None!")
