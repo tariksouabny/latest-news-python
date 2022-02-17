@@ -1,6 +1,5 @@
 import logging
-# TODO: Add a function that can wrap around other functions that are supposed to return a value.
-#       However, if they do not return a value, then it logging.error(...)s the issue.  
+
 def inherit_logging_config():
     logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
