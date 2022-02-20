@@ -11,7 +11,7 @@ class SearchKeywordNotValid(BaseException):
     pass
 
 
-@util.log_start_end_func
+@util_news.log_start_end_func
 def are_arguments_valid(arguments):
     argument_type_ = arguments.type_
     argument_search_keywowrd = arguments.search_keyword
@@ -48,7 +48,7 @@ def are_arguments_valid(arguments):
 
         
 
-@util.log_start_end_func
+@util_news.log_start_end_func
 def print_help_text():
 
     sys.stderr.write(

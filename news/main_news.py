@@ -1,10 +1,19 @@
-import util_news, parse_arguments, check_arguments, logging
+import util_news, parse_arguments, check_arguments, logging, requests
 #TODO: Decorate all of these functions with the util.
 def if_feed(_):
     pass
-
+@util_news.log_start_end_func
 def if_search(search_keyword):
-    pass
+    url = "https://free-news.p.rapidapi.com/v1/search"
+    querystring = {"q": str(search_keyword),"lang":"en"}
+    headers = {
+        'x-rapidapi-host': "free-news.p.rapidapi.com",
+        'x-rapidapi-key': "f67acd1fbamsh537007e203f8ab5p12c2b5jsna64615480c4b"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    return util_news.format_news(response._content)
+
 
 def main():
     arguments = parse_arguments.parse_arguments()
