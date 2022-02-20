@@ -1,4 +1,4 @@
-import logging
+import logging, json
 
 def inherit_logging_config():
     logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -9,7 +9,7 @@ def log_start_end_func(func):
         # TODO: Add a way to log **kwargs as well
         logging.debug(f"Start of {func.__name__}{args}")
         return_val = func(*args, **kwargs)
-        logging.debug(f"End of {func.__name__}{args}")
+        logging.debug(f"End of {func.__name__}{args}, returning {return_val}")
         return return_val
     return log
 
@@ -20,3 +20,4 @@ def check_if_returns(func):
         logging.debug(f"RETURNING {func}{args}")
         if func(*args, **kwargs) == None:
             logging.error(f"{func}{args}{kwargs} returns None!")
+
