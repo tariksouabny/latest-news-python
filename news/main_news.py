@@ -1,7 +1,16 @@
 import util_news, parse_arguments, check_arguments, logging, requests
-#TODO: Decorate all of these functions with the util.
+@util_news.log_start_end_func
 def if_feed(_):
-    pass
+    """
+    Feed - Generates the top results without a need to search
+
+    Operates by the normal search function, but instead of using a user-supplied
+    search keyword, the feed function searches for the top articles containing the letter "a"
+    
+    Yes, it's very creative.
+    """
+    
+    if_search("a")
 @util_news.log_start_end_func
 def if_search(search_keyword):
     url = "https://free-news.p.rapidapi.com/v1/search"
@@ -12,8 +21,8 @@ def if_search(search_keyword):
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
-    return util_news.format_news(response._content)
-
+    news_list = util_news.get_news(response._content)
+    util_news.print_news(news_list)
 
 def main():
     arguments = parse_arguments.parse_arguments()
