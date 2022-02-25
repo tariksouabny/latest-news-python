@@ -34,8 +34,9 @@ e.g., `python main_news.py search "elon musk"`
 
 ## Feed
  
- <p>You can also bring up a feed:<p>
+<p>You can also bring up a feed:<p>
 `python main_news.py feed`
+
 ---
 ## Contributions
 
