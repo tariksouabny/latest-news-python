@@ -32,7 +32,9 @@ You can either bring up a search:
 
 e.g., `python main_news.py search "elon musk"`
 
-#######Or bring up a news feed:
+## Feed
+ 
+ You can also bring up a feed
 `python main_news.py feed`
 ---
 ## Contributions
